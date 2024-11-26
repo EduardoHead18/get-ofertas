@@ -24,7 +24,7 @@ export const HomePage = () => {
           className="border-2 px-4 py-2 w-96 rounded-full focus:outline-none"
           type="text"
           name="username"
-          placeholder="iphone 15 pro"
+          placeholder="iphone 15 pro..."
           value={searchInput} // El valor del input está vinculado al estado
           onChange={handleInputChange}
         />

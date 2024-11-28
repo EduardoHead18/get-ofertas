@@ -1,6 +1,6 @@
 "use server";
-import { title } from "process";
 import puppeteer from "puppeteer";
+import { IProducts } from "../types/products";
 //oferta .andes-money-amount__discount
 export const mercadoPuppeteer = async () => {
   //config browser
@@ -47,6 +47,7 @@ export const mercadoPuppeteer = async () => {
 
       const createArrayObjectProducts: IProducts = {
         title,
+        description,
         discount,
         priceNow,
         priceBefore,
@@ -59,16 +60,7 @@ export const mercadoPuppeteer = async () => {
     });
   });
 
-  console.log(dataProducts);
-
   await browser.close();
+  return dataProducts;
 };
-interface IProducts {
-  title: String;
-  discount: String;
-  priceNow: String;
-  priceBefore: String;
-  imageUrl: String;
-  productUrl: String;
-  store: String;
-}
+

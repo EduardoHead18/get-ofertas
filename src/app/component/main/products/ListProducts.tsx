@@ -20,7 +20,7 @@ export const ListProducts = () => {
     }
   };
 
-  console.log(productState)
+  console.log(productState);
 
   useEffect(() => {
     getProducts();
@@ -29,11 +29,10 @@ export const ListProducts = () => {
   return (
     <>
       <h1 className="text-lg font-bold">Productos de hoy 🙂‍↕️</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 2xl:grid-cols-7 gap-4">
         {loading ? (
-         
           <>
-            {[...Array(8)].map((_, index) => (
+            {[...Array(20)].map((_, index) => (
               <ListProductsSkeleton key={index} />
             ))}
           </>

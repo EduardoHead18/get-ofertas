@@ -2,7 +2,7 @@ import React from "react";
 
 export const NavbarComponent = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-orange-200">
       <div className="flex-1">
         <a className="btn btn-ghost hover:bg-white text-xl">Get Ofertas</a>
       </div>

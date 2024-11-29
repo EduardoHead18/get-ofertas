@@ -20,6 +20,8 @@ export const ListProducts = () => {
     }
   };
 
+  console.log(productState)
+
   useEffect(() => {
     getProducts();
   }, []);

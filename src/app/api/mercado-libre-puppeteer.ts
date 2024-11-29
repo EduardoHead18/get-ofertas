@@ -12,7 +12,17 @@ export const mercadoPuppeteer = async () => {
   });
 
   //waiting data
-  await page.waitForSelector(".poly-card", { timeout: 2000 });
+  await page.waitForSelector(".poly-card", { timeout: 1000 });
+
+  //scroll down for all dates
+  await page.evaluate(async () => {
+    const scrollDelay = 0;
+    const scrollStep = 50;
+    while (document.documentElement.scrollHeight > document.documentElement.scrollTop + window.innerHeight) {
+      window.scrollBy(0, scrollStep);
+      await new Promise((resolve) => setTimeout(resolve, scrollDelay));
+    }
+  });
 
   //here I get product data from Mercado Libre.
   const dataProducts = await page.$$eval(".poly-card", (data) => {

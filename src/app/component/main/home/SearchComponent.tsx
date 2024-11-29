@@ -15,7 +15,7 @@ export const SearchComponent = () => {
 
   return (
     <>
-      <h1 className="text-center text-2xl font-bold">
+      <h1 className="text-center text-2xl font-bold mt-28">
         Busca nuevas ofertas!!!
       </h1>
 

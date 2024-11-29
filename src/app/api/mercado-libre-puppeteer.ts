@@ -1,8 +1,9 @@
 "use server";
 import puppeteer from "puppeteer";
 import { IProducts } from "../types/products";
+import { promises } from "dns";
 //oferta .andes-money-amount__discount
-export const mercadoPuppeteer = async () => {
+export const mercadoPuppeteer = async () : Promise<IProducts[]> =>  {
   //config browser
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
@@ -30,24 +31,24 @@ export const mercadoPuppeteer = async () => {
       const title =
         data
           .querySelector(".poly-card .poly-component__brand")
-          ?.textContent?.trim() || "whitout title";
+          ?.textContent?.trim() || "Product";
       const description =
         data.querySelector(".poly-component__title a")?.textContent?.trim() ||
         "whitout description";
       const discount =
         data
           .querySelector(".andes-money-amount__discount ")
-          ?.textContent?.trim() || "without discount";
+          ?.textContent?.trim() || " ";
       const priceNow =
         data
           .querySelector(".poly-price__current .andes-money-amount__fraction")
-          ?.textContent?.trim() || "without discount";
+          ?.textContent?.trim() || " ";
       const priceBefore =
         data
           .querySelector(
             ".andes-money-amount--previous .andes-money-amount__fraction"
           )
-          ?.textContent?.trim() || "without discount";
+          ?.textContent?.trim() || " ";
 
       const imageUrl = (
         data.querySelector("img.poly-component__picture") as HTMLImageElement

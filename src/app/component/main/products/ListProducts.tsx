@@ -46,7 +46,7 @@ export const ListProducts = () => {
               className="w-full h-full bg-white drop-shadow-md rounded-lg p-3 mt-10"
             >
               <Image
-                className="w-full object-cover"
+                className="object-cover"
                 src={product.imageUrl}
                 alt={product.title}
                 width={900}
@@ -55,17 +55,23 @@ export const ListProducts = () => {
               <div className="flex flex-row justify-between">
                 <h1 className="text-lg font-bold">{product.title}</h1>
                 <span className="bg-green-400 p-1 px-2 rounded-sm">
-                  ${product.priceNow}
-                </span>
-                <span>{product.discount}</span>
-              </div>
-              <div className="flex flex-row mt-2">
-                <p className="mr-10">{product.description}</p>
-                <span className="text-red-800 line-through p-1 px-2 rounded-sm">
-                  ${product.priceBefore}
+                  MX${product.priceNow}
                 </span>
               </div>
-              <span>Tienda: {product.store}</span>
+
+              <div className="mt-3">
+                <p className="mr-10">{product.description}.</p>
+                <h2 className="mt-2 font-bold">
+                  Descuento: <span className="font-medium">{product.discount}</span>
+                </h2>
+                <h3 className="mt-3 font-bold">
+                  Precio anterior:
+                  <span className="text-red-800 line-through p-1 px-2 rounded-sm">
+                    ${product.priceBefore}
+                  </span>
+                </h3>
+                <h4 className=" mt-2 font-bold">Tienda: <span className="font-medium">{product.store}</span></h4>
+              </div>
             </a>
           ))
         )}

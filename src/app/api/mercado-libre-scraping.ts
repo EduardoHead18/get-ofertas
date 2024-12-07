@@ -8,7 +8,9 @@ export const mercadoPuppeteer = async () : Promise<IProducts[]> =>  {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
 
-  await page.goto("https://listado.mercadolibre.com.mx/oferta#D[A:oferta]", {
+  const pathML = process.env.MERCADO_LIBRE_PATH
+
+  await page.goto(pathML!, {
     waitUntil: "domcontentloaded",
   });
 

@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { mercadoPuppeteer } from "@/app/api/mercado-libre-scraping";
+import { mercadoPuppeteer } from "@/app/api/mercado-libre-scraping/meli-implement";
 import { IProducts } from "@/app/types/products";
 import { ListProductsSkeleton } from "./ListProductsSkeleton";
 
@@ -11,8 +11,9 @@ export const ListProducts = () => {
 
   const getProducts = async () => {
     try {
-      const responseProducts = await mercadoPuppeteer();
-      setProductState(responseProducts);
+      const responseProducts = await fetch('/api/mercado-libre-scraping/');
+      const responseProductsJson = await responseProducts.json();
+      setProductState(responseProductsJson);
     } catch (error) {
       console.error("Error fetching products:", error);
     } finally {
@@ -20,15 +21,8 @@ export const ListProducts = () => {
     }
   };
 
-  const testApi = async () => {
-    const response = await fetch('/api/amazon-scraping', {method: 'GET'})
-    const responseJson = await response.json();
-    console.log(responseJson)
-  }
-
   useEffect(() => {
     getProducts();
-    testApi();
   }, []);
 
   return (

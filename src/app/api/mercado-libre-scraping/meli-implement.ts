@@ -1,7 +1,6 @@
 "use server";
 import puppeteer from "puppeteer";
-import { IProducts } from "../types/products";
-import { promises } from "dns";
+import { IProducts } from "../../types/products";
 //oferta .andes-money-amount__discount
 export const mercadoPuppeteer = async () : Promise<IProducts[]> =>  {
   //config browser

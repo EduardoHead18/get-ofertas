@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { mercadoPuppeteer } from "@/app/api/mercado-libre-scraping/meli-implement";
 import { IProducts } from "@/app/types/products";
 import { ListProductsSkeleton } from "./ListProductsSkeleton";
 

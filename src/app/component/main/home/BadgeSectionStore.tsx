@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import { SiMercadopago } from "react-icons/si";
 import { FaAmazon } from "react-icons/fa";
